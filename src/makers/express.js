@@ -1,10 +1,12 @@
-import {
-  eventRoutes,
-} from '../routes';
+import routes from '../routes';
+import middlewares from '../middlewares';
 
-import {
+const {
+  eventRoutes,
+} = routes;
+const {
   errorHandler,
-} from '../middlewares';
+} = middlewares;
 
 
 export const registerRoutes = (app) => {

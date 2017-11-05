@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { eventController } from '../controllers';
+import * as eventController from '../controllers/event.controller';
 
 const router = Router();
 
 router.get('/events', eventController.select);
 router.get('/events/:_id', eventController.selectOne);
-router.post('/events', eventController.create);
+router.post('/events', eventController.insert);
 router.patch('/events/:_id', eventController.update);
 router.delete('/task/:id', eventController.remove);
 

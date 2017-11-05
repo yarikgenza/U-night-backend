@@ -14,10 +14,10 @@ const app = express();
 
 mongoose.connect(database, {
   useMongoClient: true,
-  promiseLibrary: bluebird,
 }, () => {
   console.log(`Connected to db: ${database}`);
 });
+mongoose.Promise = bluebird;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -1,4 +1,4 @@
-import * as eventController from './event.controller';
+import eventController from './event.controller';
 
 export default {
   eventController,

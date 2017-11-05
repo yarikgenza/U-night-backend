@@ -1,4 +1,6 @@
-import { Event } from '../models';
+import models from '../models';
+
+const { Event } = models;
 
 export const select = async (req, res, next) => {
   let events;
