@@ -9,6 +9,7 @@ module.exports = {
     "no-console": 0,
     "import/first": 0,
     "consistent-return": 0,
+    'no-underscore-dangle': 0,
   },
   "settings": {
   "import/resolver": {

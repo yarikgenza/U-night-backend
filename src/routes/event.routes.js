@@ -7,6 +7,6 @@ router.get('/events', eventController.select);
 router.get('/events/:_id', eventController.selectOne);
 router.post('/events', eventController.insert);
 router.patch('/events/:_id', eventController.update);
-router.delete('/task/:id', eventController.remove);
+router.delete('/events/:_id', eventController.remove);
 
 export default router;

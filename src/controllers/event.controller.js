@@ -49,18 +49,17 @@ export const selectOne = async (req, res, next) => {
 export const update = async (req, res, next) => {
   const { _id } = req.params;
   const { body } = req;
+  let event;
 
   try {
-    await Event.update({ _id }, {
-      ...body,
-    });
+    event = await Event.findOneAndUpdate({ _id }, body, { new: true });
   } catch ({ message }) {
     return next({
       message,
     });
   }
 
-  res.status(204);
+  res.json(event);
 };
 
 export const remove = async (req, res, next) => {
@@ -74,6 +73,5 @@ export const remove = async (req, res, next) => {
     });
   }
 
-  res
-    .status(204);
+  res.sendStatus(204);
 };
