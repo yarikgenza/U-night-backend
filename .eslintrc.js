@@ -5,9 +5,11 @@ module.exports = {
   ],
   "rules": {
     "import/no-extraneous-dependencies": 0,
-    "import/newline-after-import": 0,
+    "import/newline-after-import": 1,
     "no-console": 0,
-    "import/first": 0
+    "import/first": 0,
+    "consistent-return": 0,
+    'no-underscore-dangle': 0,
   },
   "settings": {
   "import/resolver": {
