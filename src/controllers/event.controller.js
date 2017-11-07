@@ -2,6 +2,10 @@ import models from '../models';
 
 const { Event } = models;
 
+/**
+ * @name Select
+ * @description Sends a list of events to client;
+ */
 export const select = async (req, res, next) => {
   let events;
 
@@ -16,6 +20,12 @@ export const select = async (req, res, next) => {
   res.json(events);
 };
 
+
+/**
+ * @name Insert
+ * @description Creates an event and sends it to client
+ * @param {Object} body
+ */
 export const insert = async (req, res, next) => {
   const { body } = req;
   let event;
@@ -31,6 +41,12 @@ export const insert = async (req, res, next) => {
   res.json(event);
 };
 
+
+/**
+ * @name SelectOne
+ * @description Finds an event and sends it to client
+ * @param {ObjectID} _id
+ */
 export const selectOne = async (req, res, next) => {
   const { _id } = req.params;
   let event;
@@ -46,6 +62,13 @@ export const selectOne = async (req, res, next) => {
   res.json(event);
 };
 
+
+/**
+ * @name Update
+ * @description Updates an event and sends updated doc to client
+ * @param {ObjectID} _id
+ * @param {Object} body
+ */
 export const update = async (req, res, next) => {
   const { _id } = req.params;
   const { body } = req;
@@ -62,6 +85,11 @@ export const update = async (req, res, next) => {
   res.json(event);
 };
 
+/**
+ * @name Remove
+ * @description Deletes an event. Sends nothing but status
+ * @param {ObjectID} _id
+ */
 export const remove = async (req, res, next) => {
   const { _id } = req.params;
 
