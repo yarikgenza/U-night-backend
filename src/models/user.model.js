@@ -39,8 +39,11 @@ const schema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Event',
   }],
+  facebookId: {
+    type: String,
+  },
 }, {
   timestamps: true,
 });
 
-export default mongoose.mode(modelName, schema);
+export default mongoose.model(modelName, schema);

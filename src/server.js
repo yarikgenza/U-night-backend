@@ -9,6 +9,7 @@ import {
   registerRoutes,
   registerMiddlewares,
 } from './makers/express';
+import registerPassport from './makers/passport';
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('tiny'));
 
+registerPassport(app);
 registerRoutes(app);
 registerMiddlewares(app);
 
