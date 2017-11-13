@@ -2,6 +2,7 @@ import routes from '../routes';
 import middlewares from '../middlewares';
 
 const {
+  authRoutes,
   eventRoutes,
 } = routes;
 const {
@@ -9,7 +10,8 @@ const {
 } = middlewares;
 
 
-export const registerRoutes = (app) => {
+export const registerRoutes = (app, passport) => {
+  app.use('/auth', authRoutes(passport));
   app.use('/api', eventRoutes);
 };
 
