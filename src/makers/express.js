@@ -4,6 +4,7 @@ import middlewares from '../middlewares';
 const {
   authRoutes,
   eventRoutes,
+  userRoutes,
 } = routes;
 const {
   errorHandler,
@@ -13,6 +14,7 @@ const {
 export const registerRoutes = (app, passport) => {
   app.use('/auth', authRoutes(passport));
   app.use('/api', eventRoutes);
+  app.use('/api', userRoutes(passport));
 };
 
 export const registerMiddlewares = (app) => {
