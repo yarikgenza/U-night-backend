@@ -11,23 +11,24 @@ const registerPassport = (app, passport) => {
     clientSecret: facebook.clientSecret,
   }, async (accessToken, refreshToken, profile, done) => {
     try {
-      let user = await User.findOne({ facebookId: profile.id });
+      let user = await User.findOne({ facebookId: profile._json.id });
       if (!user) {
         try {
           user = await User.create({
-            firstName: profile.first_name,
-            lastName: profile.last_name,
-            email: profile.emails[0].value,
-            gender: profile.genger,
+            firstName: profile._json.first_name,
+            lastName: profile._json.last_name,
+            email: profile._json.email,
+            gender: profile._json.genger,
+            age: 18,
             nickname: profile.username,
-            facebookId: profile.id,
+            facebookId: profile._json.id,
           });
-          return done(null, user);
+          return done(user);
         } catch (error) {
           return done(error);
         }
       } else {
-        return done(null, user);
+        return done(user);
       }
     } catch (error) {
       return done(error);
