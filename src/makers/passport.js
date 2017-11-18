@@ -18,9 +18,6 @@ const registerPassport = (app, passport) => {
             firstName: profile._json.first_name,
             lastName: profile._json.last_name,
             email: profile._json.email,
-            gender: profile._json.genger,
-            age: 18,
-            nickname: profile.username,
             facebookId: profile._json.id,
           });
           return done(user);

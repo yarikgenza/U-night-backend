@@ -13,20 +13,9 @@ const schema = new Schema({
   lastName: {
     type: String,
   },
-  nickname: {
-    type: String,
-  },
   nightCounter: {
     type: Number,
     default: 0,
-  },
-  age: {
-    type: Number,
-    required: true,
-  },
-  gender: {
-    type: String,
-    enum: ['male', 'female'],
   },
   isUnighter: {
     type: Boolean,
