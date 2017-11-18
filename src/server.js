@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved imprt/no-extensions */
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
