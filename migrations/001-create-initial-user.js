@@ -16,6 +16,8 @@ const User = require('../src/models/user.model')(mongoose);
 const data = {
   email: 'admin@unight.com',
   firstName: 'admin',
+  lastName: 'admin lastName',
+  photoUrl: 'http://www.gravatar.com/avatar',
   facebookId: '1234567890',
 };
 
