@@ -1,7 +1,9 @@
+/* eslint-disable import/no-unresolved imprt/no-extensions */
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import bluebird from 'bluebird';
+import passport from 'passport';
 import morgan from 'morgan';
 import { database } from 'config';
 
@@ -9,6 +11,7 @@ import {
   registerRoutes,
   registerMiddlewares,
 } from './makers/express';
+import registerPassport from './makers/passport';
 
 const app = express();
 
@@ -23,7 +26,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('tiny'));
 
-registerRoutes(app);
-registerMiddlewares(app);
+registerPassport(app, passport);
+registerRoutes(app, passport);
+registerMiddlewares(app, passport);
 
 export default app;
