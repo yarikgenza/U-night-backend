@@ -10,7 +10,7 @@ export const select = async (req, res, next) => {
   let events;
 
   try {
-    events = await Event.find().lean();
+    events = await Event.find().populate('owner').lean();
   } catch ({ message }) {
     return next({
       message,
@@ -52,7 +52,7 @@ export const selectOne = async (req, res, next) => {
   let event;
 
   try {
-    event = await Event.findOne({ _id }).lean();
+    event = await Event.findOne({ _id }).populate('owner').lean();
   } catch ({ message }) {
     return next({
       message,
