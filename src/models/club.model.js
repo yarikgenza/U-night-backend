@@ -23,6 +23,10 @@ module.exports = (mongoose) => {
       type: Number,
       required: true,
     },
+    logoUrl: {
+      type: String,
+      required: true,
+    },
     photosUrl: [{
       type: String,
     }],
