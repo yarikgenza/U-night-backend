@@ -1,7 +1,9 @@
 import { Schema } from 'mongoose';
 
+const modelName = 'Club';
+
 module.exports = (mongoose) => {
-  const ClubSchema = new Schema({
+  const schema = new Schema({
     name: {
       type: String,
       required: true,
@@ -35,8 +37,10 @@ module.exports = (mongoose) => {
     },
     siteUrl: {
       type: String,
-    }
+    },
+  }, {
+    timestamps: true,
   });
-  
-  return mongoose.model('Club', ClubSchema);
-}
+
+  return mongoose.model(modelName, schema);
+};

@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import * as ClubController from '../controllers/club.controller';
+import * as clubController from '../controllers/club.controller';
 
 const router = new Router();
 
-router.get('/clubs', ClubController.select);
-router.get('/clubs/:_id', ClubController.selectOne);
-router.post('/clubs', ClubController.insert);
-router.patch('/clubs/:_id', ClubController.update);
-router.delete('/clubs/:_id', ClubController.remove);
+router.get('/clubs', clubController.select);
+router.get('/clubs/:_id', clubController.selectOne);
+router.post('/clubs', clubController.insert);
+router.patch('/clubs/:_id', clubController.update);
+router.delete('/clubs/:_id', clubController.remove);
 
 export default router;
