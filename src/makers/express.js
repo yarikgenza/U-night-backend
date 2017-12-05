@@ -5,6 +5,7 @@ const {
   authRoutes,
   eventRoutes,
   userRoutes,
+  clubRoutes,
 } = routes;
 const {
   errorHandler,
@@ -15,6 +16,7 @@ export const registerRoutes = (app, passport) => {
   app.use('/auth', authRoutes(passport));
   app.use('/api', eventRoutes);
   app.use('/api', userRoutes(passport));
+  app.use('/api', clubRoutes);
 };
 
 export const registerMiddlewares = (app) => {

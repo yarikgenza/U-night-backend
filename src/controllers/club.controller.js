@@ -1,100 +1,100 @@
 import models from '../models';
 
-const { Event } = models;
+const { Club } = models;
 
 /**
  * @name Select
- * @description Sends a list of events to client;
+ * @description Sends a list of clubs to client;
  */
 export const select = async (req, res, next) => {
-  let events;
+  let clubs;
 
   try {
-    events = await Event.find().populate('owner').lean();
+    clubs = await Club.find().lean();
   } catch ({ message }) {
     return next({
       message,
     });
   }
 
-  res.json(events);
+  res.json(clubs);
 };
 
 
 /**
  * @name Insert
- * @description Creates an event and sends it to client
+ * @description Creates an club and sends it to client
  * @param {Object} body
  */
 export const insert = async (req, res, next) => {
   const { body } = req;
-  let event;
+  let club;
 
   try {
-    event = await Event.create(body);
+    club = await Club.create(body);
   } catch ({ message }) {
     return next({
       message,
     });
   }
 
-  res.json(event);
+  res.json(club);
 };
 
 
 /**
  * @name SelectOne
- * @description Finds an event and sends it to client
+ * @description Finds a club by id and sends it to client
  * @param {ObjectID} _id
  */
 export const selectOne = async (req, res, next) => {
   const { _id } = req.params;
-  let event;
+  let club;
 
   try {
-    event = await Event.findOne({ _id }).populate('owner').lean();
+    club = await Club.findOne({ _id }).lean();
   } catch ({ message }) {
     return next({
       message,
     });
   }
 
-  res.json(event);
+  res.json(club);
 };
 
 
 /**
  * @name Update
- * @description Updates an event and sends updated doc to client
+ * @description Updates a club and sends updated doc to client
  * @param {ObjectID} _id
  * @param {Object} body
  */
 export const update = async (req, res, next) => {
   const { _id } = req.params;
   const { body } = req;
-  let event;
+  let club;
 
   try {
-    event = await Event.findOneAndUpdate({ _id }, body, { new: true });
+    club = await Club.findOneAndUpdate({ _id }, body, { new: true });
   } catch ({ message }) {
     return next({
       message,
     });
   }
 
-  res.json(event);
+  res.json(club);
 };
 
 /**
  * @name Remove
- * @description Deletes an event. Sends nothing but status
+ * @description Deletes a club. Sends nothing but status
  * @param {ObjectID} _id
  */
 export const remove = async (req, res, next) => {
   const { _id } = req.params;
 
   try {
-    await Event.remove({ _id }).exec();
+    await Club.remove({ _id }).exec();
   } catch ({ message }) {
     return next({
       message,
